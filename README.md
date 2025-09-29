@@ -109,4 +109,4 @@ Can you point out and validate my understanding of this data so I could build up
 
 
 
-Video: link
+Video: https://youtu.be/MnQh6uGlAns
