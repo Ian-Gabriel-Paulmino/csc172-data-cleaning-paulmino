@@ -49,9 +49,9 @@
 ### Missing Values
 - Filled missing **Item** with `"Unknown"`.  
 - Recalculated missing numeric values (**Total Spent**, **Price Per Unit**, **Quantity**) using the formula:  
-$$
-\text{Total Spent} = \text{Price Per Unit} \times \text{Quantity}
-$$
+
+- Total Spent = Price per Unit x Quantity
+
 - For still-missing numeric values, filled with the **median** of the column.  
 - Filled missing **Discount Applied** with `"Unknown"`.  
 
@@ -73,7 +73,9 @@ $$
 ## AI prompts used
 - Prompt 1: "Generate me the code to a matplotlib for my pandas dataframe. This dataframe contains missing elements, detect these missing elements and graph the their number according to each column of the dataframe"
 - Generated code:
-# --- PLOT 1: Missing values bar chart (before cleaning) ---
+
+```python
+# PLOT 1: Missing values bar chart (before cleaning)
 missing_counts = df_before.isnull().sum()
 
 plt.figure(figsize=(8,5))
@@ -83,7 +85,7 @@ plt.ylabel("Count of Missing Values")
 plt.xticks(rotation=45, ha="right")
 plt.tight_layout()
 plt.show()
-
+```
 - Prompt 2: "Given this dataset, From how I understand it, Cleaning methods can be done be done by enforcing a (Total = Price × Quantity) rule to fill out missing data on each respective fields. I also noticed that there are very large outliers like people buying furniture and just a 10 dollar food, from previous research I say I can use median instead of mean of this. For Duplicates, most systems follow transaction Ids as the unique key therefore they should be the basis of uniqueness. I would also want to enforce data strict formatting for Fields such as Cash and etc. For missing values of items, since the catalog of price lists is not complete guessing would be hard, I can just put unknown instead. Same goes with Discount since it should be difficult unless I have an initial idea of the price catalogue.
 Can you point out and validate my understanding of this data so I could build upon a general idea better"? 
 
