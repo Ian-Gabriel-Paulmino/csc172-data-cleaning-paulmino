@@ -49,9 +49,9 @@
 ### Missing Values
 - Filled missing **Item** with `"Unknown"`.  
 - Recalculated missing numeric values (**Total Spent**, **Price Per Unit**, **Quantity**) using the formula:  
-  \[
-  \text{Total Spent} = \text{Price Per Unit} \times \text{Quantity}
-  \]  
+$$
+\text{Total Spent} = \text{Price Per Unit} \times \text{Quantity}
+$$
 - For still-missing numeric values, filled with the **median** of the column.  
 - Filled missing **Discount Applied** with `"Unknown"`.  
 
@@ -89,20 +89,22 @@ Can you point out and validate my understanding of this data so I could build up
 
 ## Results
 - Rows before: (12575, 11)
-	Transaction ID	Customer ID	Category	Item	Price Per Unit	Quantity	Total Spent	Payment Method	Location	Transaction Date	Discount Applied
-0	TXN_6867343	CUST_09	Patisserie	Item_10_PAT	18.5	10.0	185.0	Digital Wallet	Online	2024-04-08	True
-1	TXN_3731986	CUST_22	Milk Products	Item_17_MILK	29.0	9.0	261.0	Digital Wallet	Online	2023-07-23	True
-2	TXN_9303719	CUST_02	Butchers	Item_12_BUT	21.5	2.0	43.0	Credit Card	Online	2022-10-05	False
-3	TXN_9458126	CUST_06	Beverages	Item_16_BEV	27.5	9.0	247.5	Credit Card	Online	2022-05-07	NaN
-4	TXN_4575373	CUST_05	Food	Item_6_FOOD	12.5	7.0	87.5	Digital Wallet	Online	2022-10-02	False
-
 - Rows after: (12575, 11)
-Transaction ID	Customer ID	Category	Item	Price Per Unit	Quantity	Total Spent	Payment Method	Location	Transaction Date	Discount Applied
-0	TXN_6867343	CUST_09	Patisserie	Item_10_PAT	18.5	10.0	185.0	Digital Wallet	Online	2024-04-08	True
-1	TXN_3731986	CUST_22	Milk Products	Item_17_MILK	29.0	9.0	261.0	Digital Wallet	Online	2023-07-23	True
-2	TXN_9303719	CUST_02	Butchers	Item_12_BUT	21.5	2.0	43.0	Credit Card	Online	2022-10-05	False
-3	TXN_9458126	CUST_06	Beverages	Item_16_BEV	27.5	9.0	247.5	Credit Card	Online	2022-05-07	Unknown
-4	TXN_4575373	CUST_05	Food	Item_6_FOOD	12.5	7.0	87.5	Digital Wallet	Online	2022-10-02	False
+
+| Field            | Before        | After         |
+|------------------|---------------|---------------|
+| Transaction ID   | TXN_5422631   | TXN_5422631   |
+| Customer ID      | CUST_09       | CUST_09       |
+| Category         | Milk Products | Milk Products |
+| Item             | *(missing)*   | Unknown       |
+| Price Per Unit   | *(missing)*   | 6.5           |
+| Quantity         | 8.0           | 8.0           |
+| Total Spent      | 52.0          | 52.0          |
+| Payment Method   | Digital Wallet| Digital Wallet|
+| Location         | In-store      | In-Store      |
+| Transaction Date | 2025-01-12    | 2025-01-12    |
+| Discount Applied | True          | True          |
+
 
 
 Video: link
